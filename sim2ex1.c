@@ -11,7 +11,11 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Please provide the address of a file as an input.\n");
         return -1;
     }
-    char cmd[BUFSIZE] = "wc -c < ";
-    strcat(cmd, argv[1]);
-    system(cmd);
+    char *fileNme = argv[1];
+   
+    char userFileQuoted[BUFSIZE] = {0};
+ //   sprintf(userFileQuoted, "\"%s\"", fileName);
+    char command[BUFSIZE] = {0};
+//sprintf(command, "wc -c < ", userFileQuoted);
+ //   system(command);
 }
