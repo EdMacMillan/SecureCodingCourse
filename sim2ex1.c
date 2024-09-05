@@ -14,8 +14,8 @@ int main(int argc, char** argv) {
     char *fileNme = argv[1];
    
     char userFileQuoted[BUFSIZE] = {0};
-    sprintf(userFileQuoted, "\"%s\"", fileName);
+ //   sprintf(userFileQuoted, "\"%s\"", fileName);
     char command[BUFSIZE] = {0};
-    sprintf(command, "wc -c < ", userFileQuoted);
-    system(command);
+//sprintf(command, "wc -c < ", userFileQuoted);
+ //   system(command);
 }
