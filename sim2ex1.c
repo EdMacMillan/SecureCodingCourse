@@ -5,7 +5,12 @@
 #define BUFSIZE 256
 
 // This program prints the size of a specified file in bytes
+
 int main(int argc, char** argv) {
+    void encodeShellString(char str1[], int num, char str2[]) {
+    // This is a shell for a funtion that would validate the input and escape any special characters
+}
+
     // Ensure that the user supplied exactly one command line argument
     if (argc != 2) { 
         fprintf(stderr, "Please provide the address of a file as an input.\n");
@@ -14,10 +19,12 @@ int main(int argc, char** argv) {
     char *fileName = argv[1];
    
     char userFileQuoted[BUFSIZE] = {0};
-    snprintf(userFileQuoted, BUFSIZE, "\"%s\"", fileName);
+    encodeShellString(userFileQuoted, BUFSIZE, fileName); 
     char command[BUFSIZE] = {0};
     snprintf(command, BUFSIZE, "wc -c < %s", userFileQuoted);
     system(command);
 
+
     return 0;
 }
+
