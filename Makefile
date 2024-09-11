@@ -1,2 +1,2 @@
 all:
-	gcc -o main sim2ex1.c
+	gcc -o main sim3ex1.c
