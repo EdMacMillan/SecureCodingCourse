@@ -1,8 +1,31 @@
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(int argc, char** argv) {
+//    char* items[] = { "boat", "car", "truck", "train" };
+//    int index = atoi(argv[1]);
+//    printf("You selected %s\n", items[index]);
+//}
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#define BUFSIZE 256
+
+// This program prints the size of a specified file in bytes
 int main(int argc, char** argv) {
-    char* items[] = { "boat", "car", "truck", "train" };
-    int index = atoi(argv[1]);
-    printf("You selected %s\n", items[index]);
+    // Ensure that the user supplied exactly one command line argument
+    if (argc != 2) { 
+        fprintf(stderr, "Please provide the address of a file as an input.\n");
+        return -1;
+    }
+    char *fileName = argv[1];
+   
+    char userFileQuoted[BUFSIZE] = {0};
+    snprintf(userFileQuoted, BUFSIZE, "\"%s\"", fileName);
+    char command[BUFSIZE] = {0};
+    snprintf(command, BUFSIZE, "wc -c < %s", userFileQuoted);
+    system(command);
+
+    return 0;
 }
